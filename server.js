@@ -1,3 +1,4 @@
+// modules
 const express = require("express")
 const Enmap = require('enmap');
 const dbg = new Enmap({ name: 'Panel' });
@@ -18,16 +19,16 @@ const config = require("./config.json");
 
 var fs = require("fs")
 
-app.use(express.static("./"));
+app.use(express.static("./")); // folder we use for (css, javascript...)
 const https = require('https');
-app.set("view engine", "ejs");
+app.set("view engine", "ejs"); 
 const Discord = require("discord.js")
 const client = new Discord.Client();
 app.listen(8000)
 
 
 client.on("ready", () => {
-	console.log("Bot is running!")
+	console.log("SixCord Bot is running!")
 })
 
 passport.serializeUser((user, done) => {
@@ -40,8 +41,8 @@ passport.deserializeUser((obj, done) => {
 passport.use(new Strategy({
 	clientID: config.id,
 	clientSecret: config.secret,
-	callbackURL: 'http://localhost:8000/auth', // example: https://example.com/auth
-	scope: ['identify', 'guilds', 'guilds.join'] //don't touch
+	callbackURL: 'http://localhost:8000/auth', // example auth: http://localhost:3000/auth
+	scope: ['identify', 'guilds', 'guilds.join'] // bot's scopes for auth
 },
 (accessToken, refreshToken, profile, done) => {
 	process.nextTick(() => done(null, profile));
@@ -57,7 +58,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(helmet());
-app.locals.domain = 'http://localhost:8000/';
+app.locals.domain = 'http://localhost:8000/'; // local host
 const bodyParser = require('body-parser');
 const { Console } = require("console");
 app.use(bodyParser.json());
@@ -73,7 +74,7 @@ function checkAuth(req, res, next) {
 
 app.get('/login', (req, res, next) => {
 	if (req.session.backURL) {
-		req.session.backURL = 'http://localhost:8000/auth'; // example: https://example.com/auth
+		req.session.backURL = 'http://localhost:8000/auth'; // example auth: http://localhost:3000/auth
 	} else if (req.headers.referer) {
 		const parsed = url.parse(req.headers.referer);
 		if (parsed.hostname === app.locals.domain) {
@@ -101,32 +102,10 @@ app.get('/auth', passport.authenticate('discord', {
 app.get("/logout", function(req, res) {
     req.session.destroy(() => {
       req.logout();
-      res.redirect("/"); //Inside a callback… bulletproof!
+      res.redirect("/"); 
     });
   });
   
-  
-  /*app.get('/', (req,res) => {
-    const user = req.isAuthenticated() ? req.user : null;
-    
-  
-      
-      if(!user) return  res.render("index", {
-          client: client
-      })
-      const botStats = [{
-          botty: client,
-      perms: EvaluatedPermissions,
-          user: req.isAuthenticated() ? req.user : null
-      }];
-    
-   res.render("index-login", {
-     bot: botStats,
-     user,
-     client: client
-   })
-
-	})*/
 	
 app.get('/', (req,res) => {
 		const user = req.isAuthenticated() ? req.user : null;
