@@ -1,0 +1,195 @@
+<!--
+ *  The official website we use for SixCord Discord Bot web & dashboard.
+ *  <https://github.com/SixCord/sixcord.xyz/>
+ *  Copyright (C) 2021 SixCord
+-->
+
+<!DOCTYPE html>
+<html lang='en-US'>
+
+ <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>SixCord &mdash; The Discord Bot</title>
+
+    <!-- Meta Tags -->
+    <meta name="title" content="SixCord &mdash; The Discord Bot"/>
+    <meta name="description" content="Build the best Discord server with SixCord. Leveling, auto-moderation & more features."/>
+    <meta name="keywords" content="sixcord, sixcord bot, sixcord the discord bot, sixcord discord bot, sixcord web, sixcord dashboard, sixcord api, sixcord features, sixcord commands, sixcord help, help sixcord, sixcord support server, sixcord server, sixcord discord, sixcord status, sixcord docs, sixcord documentation, sixcord premium, sixcord development, sixcord developers, discord bot, bot development, discord bot development, discord bots"/>
+    <meta name="theme-color" content="#202024"/>
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="https://cdn.sixcord.xyz/attachments/sixcord.png">
+
+    <!-- Twitter meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@SixCordBot"/>
+    <meta name="twitter:creator" content="@SixCordBot"/>
+    <meta name="twitter:title" content="SixCord &mdash; The Discord Bot"/>
+    <meta name="twitter:description" content="Build the best Discord server with SixCord. Leveling, auto-moderation & more features."/>
+    <meta name="twitter:image" content="https://cdn.sixcord.xyz/attachments/sixcord.png"/>
+    <meta name="twitter:url" content="https://sixcord.xyz/"/>
+
+    <!-- OG Meta Tags -->
+    <meta prefix="og: http://ogp.me/ns#" property="og:title" content="SixCord &mdash; The Discord Bot"/>
+    <meta prefix="og: http://ogp.me/ns#" property="og:type" content="website"/>
+    <meta prefix="og: http://ogp.me/ns#" property="og:locale" content="en_US"/>
+    <meta prefix="og: http://ogp.me/ns#" property="og:site_name" content="SixCord &mdash; The Discord Bot"/>
+    <meta prefix="og: http://ogp.me/ns#" property="og:description" content="Build the best Discord server with SixCord. Leveling, auto-moderation & more features."/>
+    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://sixcord.xyz/"/>
+    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="https://cdn.sixcord.xyz/attachments/sixcord.png"/>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous">
+   
+        <!-- Theme Loader -->
+        <link rel="stylesheet" type="text/css" href="/src/css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="/src/css/theme.css">
+        <link rel="stylesheet" type="text/css" href="/src/css/utilities.css">    
+  
+        <!-- JavaScript -->
+   <script src="src/js/main.js"></script>
+          <% let format = ".png" || ".gif" || ".jpg" || ".jpeg"; %>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H7VE0BCE6Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H7VE0BCE6Y');
+</script>
+
+ </head>
+    <body>
+
+     <!-- Header -->
+     <!-- Header -->
+    <div class='navbar'>
+        <div class='container full flex'>
+            <a href='/' class='logo flex'>
+                <img src='https://cdn.sixcord.xyz/attachments/sixcord.png' alt='sixcord.xyz'>
+                <p class='title'>SixCord</p>
+            </a>
+            <nav>
+                <ul>
+                    <li><a class='button' href='/commands'>Commands</a></li>
+                    <li><a class='button' href='/premium'>Premium</a></li>
+                    <li><a class='button' href='https://discord.gg/zNz6arshDf' target ="_blank">Support</a></li>
+                  <% if(!user) { %>
+                    <li><a class='button' href="/login">Login</a></li>
+                  <% } else { %>
+                    <li><a class='button' href="/logout">Logout</a></li>
+                    <li><a class='button' href="/account"><%= user.username %>#<%= user.discriminator %></a></li>
+                    <li><img class="avatar" style=" border-radius: 50%; padding: 8px 16px;" width="50px" height="50px" src="https://cdn.discordapp.com/avatars/<%= user.id %>/<%= user.avatar %><%= format %>?size=2048"></li>
+                  <% } %>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Showcase -->
+    <div class='showcase'>
+        <div class='container flex'>
+            <div class='showcase-text'>
+                <h1>Create the best Discord server!</h1>
+                <p>Moderate community servers, increase voice chat activity easily with SixCord bot.</p>
+                <div class='buttons flex'>
+                    <a class='button btn btn-blurple' href='https://invite.sixcord.xyz/'><i class="fab fa-discord fa-2x"></i> Invite
+                            to Discord</a>
+                    <a class='button btn' href='#features'>See Features</a>
+                </div>
+              <div class="bot-stats">
+                <p>Used on <b><%= client.guilds.cache.size %></b> servers, with more than <b><%= client.users.cache.size %></b> members.
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Features -->
+    <div id='features' class='features'>
+        <div class='container grid'>
+            <div>
+                <h3>Levels, XP and rank card!</h3>
+                <p>Use our leveling feature to reward the most</p> <p>active members of your community!</p> <p>Now, users can customize their rank card, isn't that cool?</p> 
+                <div class="blank"></div>
+                <p>Be active to spot at top 1 of your leaderboard!</p>
+            </div>
+            <img src='https://cdn.sixcord.xyz/attachments/rankcard.png' alt='sixcord.xyz'>
+        </div>
+    </div>
+
+    <div class="wrapper" style="padding: 35px;"></div>
+    <div class='features'>
+        <div class='container grid'>
+            <img class='desktop' src='https://cdn.sixcord.xyz/attachments/music.png' alt='sixcord.xyz'>
+            <div>
+                <h3>Music</h3>
+                <p>SixCord offers music feature to all users, free & stable, that's amazing right?
+                    You don't need to setup anything, just do <b>s?play {song_name}</b> and chill.</p>
+
+                    <div class="blank"></div>
+                    <p>We ensure that there is enough capacity for every server to get the highest quality possible, you can always check <a href="https://status.sixcord.xyz/" style="text-decoration-line: underline;">service status</a> with real-time reports.</p>
+            </div>
+            <img class='mobile' src='https://cdn.sixcord.xyz/attachments/music.png' alt='sixcord.xyz'>
+        </div>
+    </div>
+
+    <div class="wrapper" style="padding: 35px;"></div>
+  
+     <!-- Mod Feature
+    <div class='features'>
+        <div class='container grid'>
+            <div>
+                <h3>Moderation</h3>
+                <p></p>
+            </div>
+            <img src='https://cdn.sixcord.xyz/attachments/moderation.png' alt='sixcord.xyz'>
+        </div>
+    </div> -->
+
+    <!-- Service Statistics -->
+    <!-- <div class="statistics">
+        <div class='footernav'>
+     <div class="servers">
+        <h2 class="servers-count">9</h2>
+        <p class="servers">Total Servers</p>
+    </div>
+        </div>
+        <div class='footernav'>
+    <div class="members">
+        <h2 class="members-count">1,000</h2>
+        <p class="members">Total Members</p>
+    </div>
+        </div>
+    </div> -->
+
+    <!-- Footer -->
+    <div class='footer'>
+        <div class='container full grid'>
+            <div class='branding'>
+                <h1 class='title'>SixCord</h1>
+             </a>
+                <p>Copyright &copy; 2021 &dash; All Rights Reserved</p>
+            </div>
+            <div class='flex'>
+                <div class='footernav'>
+                    <ul>
+                        <li><a class='button' href='/commands'>Commands</a></li>
+                        <li><a class='button' href='/premium'>Premium</a></li>
+                    </ul>
+                </div>
+                <div class='footernav'>
+                    <ul>
+                        <li><a class='button' href='terms' target ="_blank">Terms</a></li>
+                        <li><a class='button' href='privacy'>Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

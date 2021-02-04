@@ -1,0 +1,39 @@
+{
+  "name": "sixcord.xyz",
+  "version": "2.0.0",
+  "description": "Build the best Discord server with SixCord Bot",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SixCord/sixcord.git"
+  },
+  "keywords": [
+    "expressjs",
+    "nodejs",
+    "discord",
+    "bot"
+  ],
+  "author": "v1devv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SixCord/sixcord/issues"
+  },
+  "homepage": "https://github.com/SixCord/sixcord#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "console": "^0.7.2",
+    "discord.js": "^12.5.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "helmet": "^4.4.1",
+    "https": "^1.0.0",
+    "memorystore": "^1.6.4",
+    "passport": "^0.4.1",
+    "passport-discord": "^0.1.4",
+    "prebuild-install": "^6.0.0"
+  }
+}
