@@ -35,6 +35,7 @@
     "memorystore": "^1.6.4",
     "passport": "^0.4.1",
     "passport-discord": "^0.1.4",
-    "prebuild-install": "^6.0.0"
+    "prebuild-install": "^6.0.0",
+    "sixcord.js": "^1.0.0"
   }
 }
